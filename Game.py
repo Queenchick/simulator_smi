@@ -1,3 +1,5 @@
+# alfa version 0.1
+
 import random
 import time
 import os
