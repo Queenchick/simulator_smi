@@ -1,4 +1,4 @@
-gitimport random
+import random
 import time
 import os
 
@@ -21,21 +21,22 @@ warnings = 0
 max_warnings = 3
 
 
-def restart():
-    return input(
-        'Ваше агенство запретили на территории РФ по 3 статье ЗАКОНА РФ "О СРЕДСТВАХ МАССОВОЙ ИНФОРМАЦИИ", начать все '
-        'с начала?\nY/n: ')
+
 
 
 def media():
+    global a
     print(
         f'Добро пожаловать в симулятор своб****** (Данное слово запрещенно Роскомнадзором с 2023 года(Статья 13.21)) '
         f'сми в россии')
-    time.sleep(3)
+    time.sleep(1)
     os.system('cls')
     name = input('Как будет называться ваше сми агенство?\n')
     if name in media_name_tabu:
-        while restart() == 'Y':
+        print('Ваше агенство запретили на территории РФ по 3 статье ЗАКОНА РФ "О СРЕДСТВАХ МАССОВОЙ ИНФОРМАЦИИ"')
+        a = ''
+        while a != 'Y':
+            a = input('Начать все заново? Y/n\n')
             media()
     else:
         print('Удачи! и запомни: не слова про политику')
@@ -76,8 +77,8 @@ def article_writing():
 
 
 if __name__ == '__main__':
-    # media()
-    # time.sleep(2)
-    # media_genre()
-    # time.sleep(2)
+    media()
+    time.sleep(2)
+    media_genre()
+    time.sleep(2)
     article_writing()
